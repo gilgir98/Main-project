@@ -1,3 +1,23 @@
+/*
+ *
+ * fstream m; // blabla @45
+ * string s;
+ * char t;
+ * int w;
+ * m >> s; // s=="blabla"
+ * m >> t; // t=='@'
+ * m >> w; // w==45
+ *
+ *
+@5
+#1
+position 5 6
+skew 3 4
+
+#2
+posi
+
+*/
 #include <QCoreApplication>
 #include <iostream>
 #include <fstream>
@@ -40,6 +60,8 @@ int main(int argc, char *argv[])
         return -1;
     }
     string line;
+    int b;
+    line >> b;
     while(getline(file,line)){
         stringstream ss(line);
         string alpha;
@@ -50,7 +72,7 @@ int main(int argc, char *argv[])
         {
             ss >> n;
         }
-        for(int m=-1; m>5; m++)
+        for(int m=-1; m>b; m++)
             if(alpha=="#"){
             {
                 int arg1;
@@ -61,22 +83,23 @@ int main(int argc, char *argv[])
             {
              int arg1, arg2;
              ss >> arg1 >> arg2;
-             out[m]->posX << arg1;\
-             out[m]->posY << arg2;
+             out[m]->posX = arg1;\
+             out[m]->posY = arg2;
             }
             if (alpha=="skew")
             {
                 int arg1, arg2;
                 ss >> arg1>>arg2;
-                out[m]->skewX << arg1;
-                out[m]->skewY << arg2;
+                out[m]->skewX = arg1;
+                out[m]->skewY = arg2;
             }
             if (alpha=="color")
             {
               int arg1;
                 ss >> arg1;
-               out[m]->color << arg1;
-            }
+               out[m]->color = arg1;
             }
         }
     }
+    return 0;
+}
