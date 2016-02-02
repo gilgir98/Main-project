@@ -45,7 +45,7 @@ int main(int,char*[]){
 
         if(!inSection){
             char octothorp;
-            ss >> octothorp;
+            ss>>octothorp;
             if(octothorp=='#'){
                 ++currentSectionNumber;
                 int sectionId;
@@ -57,11 +57,11 @@ int main(int,char*[]){
         }
         else{
             string keyword;
-            cin>>keyword;
+            ss>>keyword;
             if(keyword=="position"){
                 int arg1,arg2;
                 ss>>arg1>>arg2;
-                out[currentSectionNumber]->posX=arg1;\
+                out[currentSectionNumber]->posX=arg1;
                 out[currentSectionNumber]->posY=arg2;
             }
             if(keyword=="skew"){
@@ -78,6 +78,16 @@ int main(int,char*[]){
             if(!(inSection=keyword!="&end")
             && currentSectionNumber+1==numberOfSections) break;
         }
+    }
+    for(int i=0;i<numberOfSections; i++)
+    {
+        cout<<"Section #"<<out[i]->color<<":"<<endl;
+        cout<<"id: "<<out[i]->id<<endl;
+        cout<<"posX: "<<out[i]->posX<<endl;
+        cout<<"posY: "<<out[i]->posY<<endl;
+        cout<<"slewX: "<<out[i]->skewX<<endl;
+        cout<<"skewY: "<<out[i]->skewY<<endl;
+        cout<<endl;
     }
     return 0;
 }
