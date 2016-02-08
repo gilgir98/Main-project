@@ -14,5 +14,6 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+QMAKE_CXXFLAGS += "`Magick++-config --cppflags --cxxflags --ldflags --libs`"
 
 SOURCES += main.cpp

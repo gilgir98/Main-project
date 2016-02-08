@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-//#include <Magick++.h>
+#include <Magick++.h>
 using namespace std;
 typedef struct {
     unsigned short id;
